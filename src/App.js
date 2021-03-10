@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState,useEffect  } from "react";
+// const http=require('http')
+// http.get("http://jsonplaceholder.typicode.com/posts/",(res)=>{
+//   res.setEncoding('utf8');
+//   res.on('data',data=>console.log(data))})
+const App=()=> {
+  const [count, setCount] = useState(0);
 
-function App() {
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{textAlign:'center'}}>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+      
     </div>
-  );
+  )
 }
 
 export default App;
